@@ -1,8 +1,8 @@
 import './style.css';
 
-import widgetHeader from './widget-header';
+import { widgetHeader } from './header';
 import widgetBody from './widget-body';
-import createModal from './modal';
+import { createModal } from './modal';
 
 export function createWidget(container: Element) {
   const widget = document.createElement('div');
