@@ -1,4 +1,6 @@
-const mainList = document.createElement('ul');
+import { createElement } from '../shared/utils/create-element';
+
+const mainList = createElement('ul');
 mainList.classList.add('content__list');
 
 const listItems = [
@@ -8,10 +10,10 @@ const listItems = [
 ];
 
 listItems.forEach((item) => {
-  const itemText = document.createElement('p');
+  const itemText = createElement('p');
   itemText.innerText = item;
 
-  const listItem = document.createElement('li');
+  const listItem = createElement('li');
   listItem.appendChild(itemText);
 
   mainList.appendChild(listItem);

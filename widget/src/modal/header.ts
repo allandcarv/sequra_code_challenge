@@ -1,4 +1,6 @@
-const modalHeader = document.createElement('header');
+import { createElement } from '../shared/utils/create-element';
+
+const modalHeader = createElement('header');
 modalHeader.classList.add('content__header');
 modalHeader.innerHTML = `
 <h2>seQura</h2>
