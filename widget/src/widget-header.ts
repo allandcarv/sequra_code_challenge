@@ -1,10 +1,16 @@
-const widgetHeader = document.createElement('header');
+import { showModal } from './widget-modal';
 
-widgetHeader.innerHTML = `
-<header class="widget__header">
-  <p><strong>Págalo en</strong></p>
-  <button id="more-info" class="widget__button">Más info</button>
-</header>
-`;
+const headerText = document.createElement('p');
+headerText.innerHTML = '<strong>Págalo en</strong>';
+
+const moreInfoButton = document.createElement('button');
+moreInfoButton.classList.add('widget__button');
+moreInfoButton.innerText = 'Más info';
+moreInfoButton.onclick = showModal;
+
+const widgetHeader = document.createElement('header');
+widgetHeader.classList.add('widget__header');
+widgetHeader.appendChild(headerText);
+widgetHeader.appendChild(moreInfoButton);
 
 export default widgetHeader;

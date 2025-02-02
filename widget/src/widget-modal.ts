@@ -1,6 +1,10 @@
+const MODAL_CONTAINER_CLASS = 'modal__container';
+const MODAL_CONTAINER_HIDDEN_CLASS = 'modal__container--hidden';
+
 export default function createModal() {
   const modalOverlay = document.createElement('div');
   modalOverlay.classList.add('modal__overlay');
+  modalOverlay.onclick = hideModal;
 
   const modalContent = document.createElement('div');
   modalContent.classList.add('modal__content');
@@ -30,9 +34,32 @@ export default function createModal() {
   `;
 
   const modalContainer = document.createElement('div');
-  modalContainer.classList.add('modal__container');
+  modalContainer.classList.add(
+    MODAL_CONTAINER_CLASS,
+    MODAL_CONTAINER_HIDDEN_CLASS
+  );
   modalContainer.appendChild(modalOverlay);
   modalContainer.appendChild(modalContent);
 
   document.querySelector('body')?.appendChild(modalContainer);
+}
+
+export function showModal() {
+  const modalContainer = document.querySelector(`.${MODAL_CONTAINER_CLASS}`);
+  modalContainer?.classList.remove(MODAL_CONTAINER_HIDDEN_CLASS);
+
+  document.addEventListener('keydown', hideModalOnEsc);
+}
+
+export function hideModal() {
+  const modalContainer = document.querySelector(`.${MODAL_CONTAINER_CLASS}`);
+  modalContainer?.classList.add(MODAL_CONTAINER_HIDDEN_CLASS);
+
+  document.removeEventListener('keydown', hideModalOnEsc);
+}
+
+export function hideModalOnEsc(event: KeyboardEvent) {
+  if (event.key === 'Escape' || event.key === 'Esc') {
+    hideModal();
+  }
 }
