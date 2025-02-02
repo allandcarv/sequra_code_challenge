@@ -1,7 +1,7 @@
 import './style.css';
 
 import { widgetHeader } from './header';
-import widgetBody from './widget-body';
+import widgetBody from './body';
 import { createModal } from './modal';
 
 export function createWidget(container: Element) {
