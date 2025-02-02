@@ -1,7 +1,7 @@
 import {
   DROPDOWN_CONTAINER_CLASS,
   DROPDOWN_CONTAINER_OPEN_CLASS,
-} from '../shared/contants';
+} from '../shared/constants';
 
 export function openDropdown() {
   const dropdownContainer = document.querySelector(
