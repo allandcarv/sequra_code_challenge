@@ -1,4 +1,4 @@
-import { showModal } from './widget-modal';
+import { showModal } from './modal/utils/show-modal';
 
 const headerText = document.createElement('p');
 headerText.innerHTML = '<strong>Págalo en</strong>';

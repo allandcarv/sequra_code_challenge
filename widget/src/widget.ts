@@ -2,7 +2,7 @@ import './style.css';
 
 import widgetHeader from './widget-header';
 import widgetBody from './widget-body';
-import createModal from './widget-modal';
+import createModal from './modal';
 
 export function createWidget(container: Element) {
   const widget = document.createElement('div');
