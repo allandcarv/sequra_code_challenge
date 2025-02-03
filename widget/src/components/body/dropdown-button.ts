@@ -6,6 +6,7 @@ import {
 
 export function createDropdownButton(value: string, dataIndex: number) {
   const button = createElement('button');
+  button.id = 'selected-option';
   button.classList.add(DROPDOWN_BUTTON_CLASS);
   button.setAttribute(DROPDOWN_BUTTON_SELECTED_ATTR, dataIndex.toString());
   button.innerText = value;
