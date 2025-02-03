@@ -1,3 +1,4 @@
+import { getInstallments } from '../../services/api/get-installments';
 import { createElement } from '../../shared/utils/create-element';
 import { createDropdownContainer } from './dropdown-container';
 
@@ -6,6 +7,10 @@ const DUMMY_DATA = [
   '6 cuotas de 28,00 €/mes',
   '12 cuotas de 15,50 €/mes',
 ];
+
+getInstallments(399.99)
+  .then((data) => console.log(data))
+  .catch((err) => console.error(err));
 
 const dropdownContainer = createDropdownContainer(DUMMY_DATA);
 
