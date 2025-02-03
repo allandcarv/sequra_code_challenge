@@ -1,4 +1,4 @@
-import { createElement } from '../shared/utils/create-element';
+import { createElement } from '../../shared/utils/create-element';
 import {
   DROPDOWN_BUTTON_CLASS,
   DROPDOWN_BUTTON_SELECTED_ATTR,

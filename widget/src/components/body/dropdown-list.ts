@@ -1,4 +1,4 @@
-import { createElement } from '../shared/utils/create-element';
+import { createElement } from '../../shared/utils/create-element';
 import { createDropdownListItem } from './dropdown-list-item';
 import { DROPDOWN_LIST_CLASS } from './shared/constants';
 

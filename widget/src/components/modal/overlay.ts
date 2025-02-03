@@ -1,4 +1,4 @@
-import { createElement } from '../shared/utils/create-element';
+import { createElement } from '../../shared/utils/create-element';
 import { hideModal } from './utils/hide-modal';
 
 const modalOverlay = createElement('div');

@@ -1,4 +1,4 @@
-import { createElement } from '../shared/utils/create-element';
+import { createElement } from '../../shared/utils/create-element';
 import modalFooter from './footer';
 import modalHeader from './header';
 import modalMain from './main';

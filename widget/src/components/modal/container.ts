@@ -1,4 +1,4 @@
-import { createElement } from '../shared/utils/create-element';
+import { createElement } from '../../shared/utils/create-element';
 import {
   MODAL_CONTAINER_CLASS,
   MODAL_CONTAINER_HIDDEN_CLASS,

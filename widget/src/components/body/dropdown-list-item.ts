@@ -1,4 +1,4 @@
-import { createElement } from '../shared/utils/create-element';
+import { createElement } from '../../shared/utils/create-element';
 import { DROPDOWN_LIST_ITEM_DATA_OPTION_ATTR } from './shared/constants';
 import { onSelectListItem } from './utils/on-select-list-item';
 

@@ -1,5 +1,5 @@
 import { showModal } from '../modal/utils/show-modal';
-import { createElement } from '../shared/utils/create-element';
+import { createElement } from '../../shared/utils/create-element';
 
 const moreInfoButton = createElement('button');
 moreInfoButton.classList.add('widget__button');

@@ -1,4 +1,4 @@
-import { createElement } from '../shared/utils/create-element';
+import { createElement } from '../../shared/utils/create-element';
 
 const mainList = createElement('ul');
 mainList.classList.add('content__list');
