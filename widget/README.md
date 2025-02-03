@@ -15,6 +15,7 @@ This project aims to provide an installments select widget, fetching the data fr
 3. **Integrate into Your Site**:
    - Add a `div` with the id `widget_container` to the main site.
    - Import both `sequra_widget.js` and `sequra_widget.css` in your main page.
+   - Retrieve selected number of installments by getting the attribute `data-selected-option` from the `#selected-option` component
 
 ## Project Structure
 
