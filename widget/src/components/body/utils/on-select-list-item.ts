@@ -39,7 +39,7 @@ export function onSelectListItem(itemId: string, itemValue: string) {
 
     const newItemsList = items
       .filter((item) => item.id !== itemId)
-      .sort((a, b) => a.id.localeCompare(b.id));
+      .sort((a, b) => +a.id - +b.id);
 
     newItemsList.forEach((item) => {
       const newItemList = createDropdownListItem(item.value, +item.id);
