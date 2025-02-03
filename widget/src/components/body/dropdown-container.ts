@@ -1,4 +1,4 @@
-import type { InstallmentValue } from '../../shared/types/installments-api-response';
+import type { InstallmentValue } from '../../shared/types/installment-value';
 import { createElement } from '../../shared/utils/create-element';
 import { createDropdownButton } from './dropdown-button';
 import { createDropdownList } from './dropdown-list';

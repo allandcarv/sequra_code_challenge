@@ -1,7 +1,5 @@
-import type {
-  InstallmentsAPIResponse,
-  InstallmentValue,
-} from '../../../shared/types/installments-api-response';
+import type { InstallmentValue } from '../../../shared/types/installment-value';
+import type { InstallmentsAPIResponse } from '../../../shared/types/installments-api-response';
 
 export function installmentFactory(
   apiResponse: InstallmentsAPIResponse[]

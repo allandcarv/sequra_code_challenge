@@ -1,7 +1,4 @@
-export interface InstallmentValue {
-  value: number;
-  string: string;
-}
+import type { InstallmentValue } from './installment-value';
 
 export interface InstallmentsAPIResponse {
   instalment_count: number;
