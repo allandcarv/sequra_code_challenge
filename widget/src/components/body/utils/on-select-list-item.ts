@@ -1,12 +1,16 @@
+import { postEvent } from '../../../services/api/post-event';
 import { createDropdownListItem } from '../dropdown-list-item';
 import {
   DROPDOWN_BUTTON_CLASS,
   DROPDOWN_BUTTON_SELECTED_ATTR,
   DROPDOWN_LIST_CLASS,
   DROPDOWN_LIST_ITEM_DATA_OPTION_ATTR,
+  EVENT_TYPES,
 } from '../shared/constants';
 
 export function onSelectListItem(itemId: string, itemValue: string) {
+  postEvent(EVENT_TYPES.SimulatorInstalmentChanged, +itemId);
+
   const dropdownButton = document.querySelector<HTMLButtonElement>(
     `.${DROPDOWN_BUTTON_CLASS}`
   );

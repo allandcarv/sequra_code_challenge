@@ -7,8 +7,8 @@ export async function getInstallments(totalWithTax: number) {
       `${BASE_URL}/credit_agreements?totalWithTax=${totalWithTax}`
     );
 
-    if (!response.ok) {
-      throw new Error('An error has occurred');
+    if (!response.ok || response.status !== 200) {
+      throw new Error(response.statusText);
     }
 
     const installments: InstallmentsAPIResponse[] = await response.json();

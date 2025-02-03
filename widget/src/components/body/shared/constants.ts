@@ -7,3 +7,7 @@ export const DROPDOWN_BUTTON_SELECTED_ATTR = 'data-selected-option';
 export const DROPDOWN_LIST_CLASS = 'select__content';
 
 export const DROPDOWN_LIST_ITEM_DATA_OPTION_ATTR = 'data-option';
+
+export const EVENT_TYPES = {
+  SimulatorInstalmentChanged: 'simulatorInstalmentChanged',
+};
