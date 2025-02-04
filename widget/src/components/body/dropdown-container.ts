@@ -1,5 +1,6 @@
 import type { Installment } from '../../shared/types/installment';
 import { createElement } from '../../shared/utils/create-element';
+import { updateModalInstallmentFee } from '../../shared/utils/update-modal-installment-fee';
 import { createDropdownButton } from './dropdown-button';
 import { createDropdownList } from './dropdown-list';
 import { DROPDOWN_CONTAINER_CLASS } from './shared/constants';
@@ -13,6 +14,7 @@ export function createDropdownContainer(installments: Installment[]) {
   dropdownContainer.onclick = toggleDropdownVisibility;
 
   const [firstInstallment] = installments;
+  updateModalInstallmentFee(firstInstallment.fee);
 
   const dropdownButton = createDropdownButton(
     getInstallmentLabel(firstInstallment.value, firstInstallment.string),

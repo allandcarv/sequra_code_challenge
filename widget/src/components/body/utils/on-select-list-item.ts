@@ -1,5 +1,6 @@
 import { postEvent } from '../../../services/api/post-event';
 import type { Installment } from '../../../shared/types/installment';
+import { updateModalInstallmentFee } from '../../../shared/utils/update-modal-installment-fee';
 import { EVENT_TYPES } from '../shared/constants';
 import { updateDropdownButton } from './update-dropdown-button';
 import { updateDropdownList } from './update-dropdown-list';
@@ -15,6 +16,7 @@ export function onSelectListItem(installments: Installment[]) {
     if (selectedInstallment) {
       updateDropdownButton(selectedInstallment);
       updateDropdownList(installments, selectedInstallment);
+      updateModalInstallmentFee(selectedInstallment.fee);
     }
   };
 }
