@@ -1,15 +1,15 @@
+import installmentStore from '../../shared/store/installment-store';
 import { createElement } from '../../shared/utils/create-element';
-import {
-  DROPDOWN_BUTTON_CLASS,
-  DROPDOWN_BUTTON_SELECTED_ATTR,
-} from './shared/constants';
+import { DROPDOWN_BUTTON_CLASS } from './shared/constants';
+import { updateDropdownButtonHandler } from './utils/update-dropdown-button-handler';
 
-export function createDropdownButton(value: string, dataIndex: number) {
-  const button = createElement('button');
+export function createDropdownButton() {
+  const button = createElement('button') as HTMLButtonElement;
   button.id = 'selected-option';
   button.classList.add(DROPDOWN_BUTTON_CLASS);
-  button.setAttribute(DROPDOWN_BUTTON_SELECTED_ATTR, dataIndex.toString());
-  button.innerText = value;
+
+  const updateDropdownButton = updateDropdownButtonHandler(button);
+  installmentStore.subscribe(updateDropdownButton);
 
   return button;
 }

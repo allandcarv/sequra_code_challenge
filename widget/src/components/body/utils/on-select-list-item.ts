@@ -1,22 +1,32 @@
 import { postEvent } from '../../../services/api/post-event';
+import installmentStore from '../../../shared/store/installment-store';
 import type { Installment } from '../../../shared/types/installment';
-import { updateModalInstallmentFee } from '../../../shared/utils/update-modal-installment-fee';
 import { EVENT_TYPES } from '../shared/constants';
-import { updateDropdownButton } from './update-dropdown-button';
-import { updateDropdownList } from './update-dropdown-list';
 
-export function onSelectListItem(installments: Installment[]) {
-  return function (value: Installment['value']) {
-    postEvent(EVENT_TYPES.SimulatorInstalmentChanged, value);
+let storedInstallments: Installment[];
+installmentStore.subscribe(({ installments, selectedInstallment }) => {
+  if (installments && selectedInstallment) {
+    storedInstallments = [...installments, selectedInstallment].sort(
+      (instA, instB) => instA.value - instB.value
+    );
+  }
+});
 
-    const selectedInstallment = installments.find(
-      (installment) => installment.value === value
+export function onSelectListItem(value: Installment['value']) {
+  postEvent(EVENT_TYPES.SimulatorInstalmentChanged, value);
+
+  const selectedInstallment = storedInstallments.find(
+    (installment) => installment.value === value
+  );
+
+  if (selectedInstallment) {
+    const filteredInstallments = storedInstallments.filter(
+      (installment) => installment.value !== value
     );
 
-    if (selectedInstallment) {
-      updateDropdownButton(selectedInstallment);
-      updateDropdownList(installments, selectedInstallment);
-      updateModalInstallmentFee(selectedInstallment.fee);
-    }
-  };
+    installmentStore.notify({
+      installments: filteredInstallments,
+      selectedInstallment,
+    });
+  }
 }

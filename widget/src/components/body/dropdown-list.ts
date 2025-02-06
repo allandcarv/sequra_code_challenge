@@ -1,28 +1,17 @@
-import type { Installment } from '../../shared/types/installment';
+import installmentStore from '../../shared/store/installment-store';
 import { createElement } from '../../shared/utils/create-element';
-import { createDropdownListItem } from './dropdown-list-item';
 import { DROPDOWN_LIST_CLASS } from './shared/constants';
-import { onSelectListItem } from './utils/on-select-list-item';
+import { createDropdownListHandler } from './utils/create-dropdown-list-handler';
 
-export function createDropdownList(
-  installments: Installment[],
-  selectedInstallment: Installment
-) {
+export function createDropdownList() {
   const dropdownList = createElement('ul');
   dropdownList.classList.add(DROPDOWN_LIST_CLASS);
 
-  const onSelectListItemHandler = onSelectListItem(installments);
+  const createDropdownListObserver = createDropdownListHandler(
+    dropdownList as HTMLUListElement
+  );
 
-  installments
-    .filter((installment) => installment.value !== selectedInstallment.value)
-    .forEach((installment) => {
-      const dropdownListItem = createDropdownListItem(
-        installment,
-        onSelectListItemHandler
-      );
-
-      dropdownList.appendChild(dropdownListItem);
-    });
+  installmentStore.subscribe(createDropdownListObserver);
 
   return dropdownList;
 }
